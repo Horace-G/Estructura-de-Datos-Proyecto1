@@ -102,10 +102,10 @@ Object* LinkedList::get(unsigned index)const {
 * desenlazarlo de la lista y luego liberar su memoria, pues en caso contrario
 * liberaríamos todos los elementos siguiente a este elemento.
 */
-bool LinkedList::erase(unsigned pos) {
+Object* LinkedList::remove(unsigned pos) {
     // Si es una posición Inválida
     if (pos < 0 || pos >= size())
-        return false; // Indicar fracaso en la operación
+        return NULL; // Indicar fracaso en la operación
     DLLNode* tmp;
     if (pos == 0){ // Desea Borrar la Cabeza
         // Desenlazar
@@ -113,9 +113,12 @@ bool LinkedList::erase(unsigned pos) {
         tmp->setPrev(NULL);
         head->setNext(NULL);
         // Liberar Memoria
+        DLLNode* temporal = tmp;
         delete head;
         // Actualizar head
         head = tmp;
+        ssize--;
+        return tmp->getData();
     }else if (pos == size() - 1){ // Desea Borrar el último
         // Recorrer hasta el final
         tmp = head;
@@ -126,7 +129,10 @@ bool LinkedList::erase(unsigned pos) {
         tmp->setNext(NULL);
         toErase->setPrev(NULL);
         // Liberar Memoria
+        DLLNode* temporal = toErase;
         delete toErase;
+        ssize--; // Disminuir Tamaño
+        return temporal->getData(); // Indicar Éxito
     }else { // Desea Borrar de enmedio
         // Recorrer hasta el nodo anterior al que se desea borrar
         tmp = head;
@@ -139,10 +145,11 @@ bool LinkedList::erase(unsigned pos) {
         toErase->setNext(NULL);
         toErase->setPrev(NULL);
         // Liberar Memoria
-        delete toErase;        
+        DLLNode* temporal = toErase;
+        delete toErase;       
+        ssize--; // Disminuir Tamaño
+        return temporal->getData(); // Indicar Éxito
     }
-    ssize--; // Disminuir Tamaño
-    return true; // Indicar Éxito
 }
 // Retorna el anterior a la posición pos
 // Implementado de la manera más sencilla, pues podría haberse usado
@@ -158,7 +165,7 @@ int LinkedList::next(int pos) const {
 }
 // Elimina todos los elementos de la lista, coloca size en cero, y la cabeza
 // en NULL, o sea que hace un poco más que el destructor.
-void LinkedList::reset() {
+void LinkedList::clear() {
     if (head)
         delete head;
     head = NULL;

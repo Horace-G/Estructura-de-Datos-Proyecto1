@@ -1,8 +1,9 @@
 #include "farraylist.h"
 #include "object.h"
+#include "tdalist.h"
 #include <sstream>
 
-FArrayList::FArrayList(int c) : TDAList() {
+FArrayList::FArrayList(int c){
 capacity = c;
 data = new Object*[capacity];
 }

@@ -12,9 +12,9 @@ linkedlist.o:	linkedlist.cpp linkedlist.h tdalist.h object.h
 	g++ -c linkedlist.cpp
 object.o:	object.h object.cpp
 	g++ -c object.cpp
-farraylist.o:	farraylist.h farraylist.cpp object.h object.cpp tdalist.h tdalist.cpp
-	g++ -c farraylist.cpp
 varraylist.o:	varraylist.h varraylist.cpp object.h object.cpp tdalist.h tdalist.cpp
 	g++ -c varraylist.cpp
+farraylist.o:	farraylist.h farraylist.cpp object.h object.cpp tdalist.h tdalist.cpp
+	g++ -c farraylist.cpp
 clean:
 	rm *.o tda
