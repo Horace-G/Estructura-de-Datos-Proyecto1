@@ -1,6 +1,6 @@
 #include "varraylist.h"
 #include "object.h"
-#include "tdalist.h"
+//#include "tdalist.h"
 
 	VArrayList::VArrayList(int c,int p){
 		capacity = c;
@@ -36,7 +36,7 @@
 
      
 
-    bool VArrayList::insert(Object* E,unsigned int p){ //añade un elemento a el arreglo.
+    bool VArrayList::insert(Object* E,int p){ //añade un elemento a el arreglo.
 
       if( isFull() ) // Verifica si el arreglo se encuentra lleno
 

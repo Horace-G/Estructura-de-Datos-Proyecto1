@@ -33,9 +33,9 @@ void testTDA(TDAList*);
 int main(int argc, char *argv[])
 {
 	 TDAList* list;
-	// list = new VArrayList(10, 5);
-	// testTDA(list);
-	// delete list;
+	list = new VArrayList(10, 5);
+	testTDA(list);
+	delete list;
 	
 
 	list = new FArrayList(25);
@@ -88,7 +88,7 @@ void testTDA(TDAList* list){
 
 	// indexOf
 	for (int i=0; i<20; i++){
-		cout << "list->indexOf(" << i << ") = "; //<< list->indexOf( & Integer(i) ) << endl;
+		cout << "list->indexOf(" << i << ") = " << list->indexOf( new Integer(i) ) << endl;
 	}
 
 	list->clear();

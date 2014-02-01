@@ -1,3 +1,5 @@
+#ifndef VARRAYLIST_H
+#define VARRAYLIST_H
 #include "object.h"
 #include "tdalist.h"
 
@@ -6,7 +8,7 @@ class VArrayList : public TDAList
 public:
 VArrayList(int,int);
 virtual ~VArrayList();
-virtual bool insert(Object*, unsigned int);/////////
+virtual bool insert(Object*,int);/////////
 virtual Object* remove(unsigned int);/////////
 virtual Object* first() const;/////////
 virtual Object* last() const;/////////
@@ -27,3 +29,5 @@ double increment;
 Object** data;
 bool makebigger();
 };
+
+#endif

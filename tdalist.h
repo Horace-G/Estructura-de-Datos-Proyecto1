@@ -22,7 +22,7 @@ class TDAList : public Object{
     TDAList();
     virtual ~TDAList();
     virtual bool insert(Object*, int) = 0;
-    virtual int indexOf(const Object*)const = 0;
+    virtual int indexOf(Object*)const = 0;
     virtual Object* get(unsigned)const = 0;
     virtual Object* remove(unsigned) = 0;
     virtual int prev(int) const = 0;

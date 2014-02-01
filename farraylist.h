@@ -1,3 +1,5 @@
+#ifndef FARRAYLIST_H
+#define FARRAYLIST_H
 #include "tdalist.h"
 #include "object.h"
 
@@ -25,3 +27,5 @@ private:
 unsigned int capacity;
 Object** data;
 };
+
+#endif
