@@ -42,9 +42,9 @@ return true;
 
 Object* FArrayList::remove(unsigned int p) {
 if (isEmpty())
-return false;
+return NULL;
 if (!(p >= 0 && p < size()))
-return false;
+return NULL;
 
 Object* retval = data[p];
 
@@ -58,7 +58,7 @@ data[size() - 1] = NULL;
 }
 
 ssize--;
-return true;
+return retval;
 }
 
 Object* FArrayList::first() const {
@@ -142,11 +142,14 @@ bool FArrayList::insert(Object *e, int p) { // inserta un objeto en la posición
     } //fin del indexOf
 
     int FArrayList::prev(int p) const{
-    	if((p<size())&&(p-size()>=1))
-    		return reinterpret_cast<int>(data[p]);
+    	return (p-1);
     }
 
     int FArrayList::next(int p) const{
-    	if(p<size()&&(p-size()>1))
-    		return reinterpret_cast<int>(data[p]);
+    	return p+1;
     }
+
+    void FArrayList::print()const{
+	for(int i=0;i<size();i++)
+		data[i]->print();
+}

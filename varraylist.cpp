@@ -78,37 +78,21 @@
 
      
 
-     
-
-    bool VArrayList:: remove (unsigned int p ) { // elimina un elemento en el indice p del arreglo
-
+    Object* VArrayList:: remove (unsigned int p ) { // elimina un elemento en el indice p del arreglo
       if (!(p >= 0 && p < size())) // revisa que p sea un indice valido
-
-        return false;
-
+        return NULL;
       if ( isEmpty() ) // si el arreglo esta vacio retorna NULL
-
-        return false;
-
+        return NULL;
       Object* retval = data[p]; // asigna a un temporal el elemento que se va a remover
-
       if (p == size()-1) // si el elemento esta al final del arreglo, lo elimina
-
         data[p]=NULL;
-
       else { // si el elemento no esta al final, hace el corrimiento necesario de los elementos posteriores
-
         for ( int i = p; i<size()-1; i++ ) // al elemento p
-
           data[i]=data[i+1];
-
-        data[size()-1] = NULL;
-
+        data[size()-1]=NULL;
       }
-
       ssize--; // reduce el tamaño de size
-
-      return true; // retorna true si el objeto fue eliminado
+      return retval; // retorna true si el objeto fue eliminado
 
     } // fin del remove
 
@@ -213,11 +197,14 @@
     } //Fin de clear
 
     int VArrayList::prev(int p) const{
-    	if((p<size())&&(p-size()>=1))
-    		return reinterpret_cast<int>(data[p]);
+    	return (p-1);
     }
 
     int VArrayList::next(int p) const{
-    	if(p<size()&&(p-size()>1))
-    		return reinterpret_cast<int>(data[p]);
+    	return p+1;
     }
+
+    void VArrayList::print()const{
+	for(int i=0;i<size();i++)
+		data[i]->print();
+}

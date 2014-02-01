@@ -24,7 +24,7 @@ class TDAList : public Object{
     virtual bool insert(Object*, int) = 0;
     virtual int indexOf(const Object*)const = 0;
     virtual Object* get(unsigned)const = 0;
-    virtual bool remove(unsigned) = 0;
+    virtual Object* remove(unsigned) = 0;
     virtual int prev(int) const = 0;
     virtual int next(int) const = 0;
     virtual void clear() = 0;

@@ -7,7 +7,7 @@ public:
 VArrayList(int,int);
 virtual ~VArrayList();
 virtual bool insert(Object*, unsigned int);/////////
-virtual bool remove(unsigned int);/////////
+virtual Object* remove(unsigned int);/////////
 virtual Object* first() const;/////////
 virtual Object* last() const;/////////
 virtual int getCapacity() const;
@@ -17,7 +17,7 @@ virtual int indexOf(Object*) const;/////////
 virtual Object* get(unsigned int) const;/////////
 virtual int prev(int) const;
 virtual int next(int) const;
-
+virtual void print()const;
 //prev
 //next
 
