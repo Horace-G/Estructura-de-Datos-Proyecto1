@@ -71,6 +71,7 @@
       }
 
       ssize++; // Incrementa el tamaño de size
+      makebigger();
 
       return true; // Retorna verdadero que la inserción se realizo con éxito 
 
@@ -193,6 +194,7 @@
       delete[] data; // libera la memoria del arreglo
 
       data = new Object*[capacity]; // genera un nuevo arreglo en memoria y lo asigna a data
+      ssize = 0;
 
     } //Fin de clear
 
