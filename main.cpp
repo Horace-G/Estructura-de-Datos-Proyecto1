@@ -32,10 +32,10 @@ void testTDA(TDAList*);
 
 int main(int argc, char *argv[])
 {
-	 TDAList* list;
-	list = new VArrayList(10, 5);
-	testTDA(list);
-	delete list;
+	  TDAList* list;
+	// list = new VArrayList(10, 5);
+	// testTDA(list);
+	// delete list;
 	
 
 	list = new FArrayList(25);

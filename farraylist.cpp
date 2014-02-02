@@ -12,35 +12,6 @@ FArrayList::~FArrayList() {
 delete[] data;
 }
 
-bool FArrayList::insert(Object* E, unsigned int p) {
-/* Precondiciones */
-if (isFull())
-return false;
-if (!(p >= 0 && p <= size()))
-return false;
-
-/* Si la lista está vacía o se está insertando
-al final de la lista puede asignarse sin
-ningún inconveniente a la lista.
-*/
-if (isEmpty() || p == size())
-data[p] = E;
-else {
-/* Si se inserta en medio de la lista se
-necesita mover los elementos contiguos
-para dejar libre la casilla del elemento
-en el arreglo.
-*/
-for (int i = size(); i > p; i--)
-data[i] = data[i - 1];
-
-data[p] = E;
-}
-
-ssize++;
-return true;
-}
-
 Object* FArrayList::remove(unsigned int p) {
 if (isEmpty())
 return NULL;
@@ -128,19 +99,6 @@ bool FArrayList::insert(Object *e, int p) { // inserta un objeto en la posición
       ssize++;
       return true;
     } // fin del Insert
-
-    int FArrayList::indexOf(const Object* E) const{
-      if( isEmpty() ) // Si el arreglo está vacío, retorna -1
-        return -1;
-      int posicion = -1;
-      for(int i = 0; i < size() ; i++){ // Recorre el arreglo y si encuentra el objeto e en el arreglo
-        if(data[i] == E){ // asigna el índice a la posicion
-          posicion = i;
-          break;
-        } //Fin del if
-      } //Fin del for
-      return posicion; // retorna el valor de posición
-    } //fin del indexOf
 
     int FArrayList::prev(int p) const{
     	return (p-1);

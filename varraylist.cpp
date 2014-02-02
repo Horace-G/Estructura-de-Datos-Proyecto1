@@ -208,3 +208,7 @@
 	for(int i=0;i<size();i++)
 		data[i]->print();
 }
+
+	int VArrayList::getCapacity() const{
+		return capacity;
+	}	
