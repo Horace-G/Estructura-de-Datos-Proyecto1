@@ -2,15 +2,15 @@
 #include "object.h"
 //#include "tdalist.h"
 
-	VArrayList::VArrayList(int c,int p){
-		capacity = c;
-		data=new Object*[capacity];
-		increment=p/10;
-	}
+VArrayList::VArrayList(int c,int p){
+capacity = c;
+data=new Object*[capacity];
+increment=p/10;
+}
 
-	VArrayList::~VArrayList(){
-		delete[] data;
-	}
+VArrayList::~VArrayList(){
+delete[] data;
+}
 
  bool VArrayList::makebigger(){ //incrementa el tamaño del arreglo por 50%
 
@@ -42,7 +42,7 @@
 
         if( !makebigger() ) // Llama al método makebigger. Si este retorna false, no hay memoria para extender
 
-          return false; // el arreglo y no se puede insertar el nuevo objeto. 
+          return false; // el arreglo y no se puede insertar el nuevo objeto.
 
       if(!(p >= 0 && p <= size())) // Verifica que p sea un índice valido
 
@@ -60,11 +60,11 @@
 
         else{
 
-          for(int i = size() - 1; i >= p; i--) // Recorre el arreglo y realiza los corrimientos necesarios de 
+          for(int i = size() - 1; i >= p; i--) // Recorre el arreglo y realiza los corrimientos necesarios de
 
             data[i + 1] = data[i]; // los índices posteriores a p. Luego asigna e a la posición p.
 
-          data[p] = E; 
+          data[p] = E;
 
         }
 
@@ -73,7 +73,7 @@
       ssize++; // Incrementa el tamaño de size
       makebigger();
 
-      return true; // Retorna verdadero que la inserción se realizo con éxito 
+      return true; // Retorna verdadero que la inserción se realizo con éxito
 
     } //Fin de insert
 
@@ -107,7 +107,7 @@
 
         return NULL;
 
-      if ( size() >= 1 )//Si el arreglo contiene por lo menos un dato devuelvo el primer Object* que se encuentra en esa posición 
+      if ( size() >= 1 )//Si el arreglo contiene por lo menos un dato devuelvo el primer Object* que se encuentra en esa posición
 
         return data[0];
 
@@ -123,7 +123,7 @@
 
         return NULL;
 
-      if ( size() >= 1 )//Si el arreglo contiene por lo menos un dato devuelvo el ultimo Object* que se encuentra en esa posición 
+      if ( size() >= 1 )//Si el arreglo contiene por lo menos un dato devuelvo el ultimo Object* que se encuentra en esa posición
 
         return data[size() - 1];
 
@@ -145,7 +145,7 @@
 
       return data[p];// retorna el Object* de la posición p
 
-    } //fin de get   
+    } //fin de get
 
     int VArrayList::indexOf(Object* E) const{ // Método que retorna la posición del objeto e en el arreglo
 
@@ -157,7 +157,7 @@
 
       for(int i = 0; i < size() ; i++){ // Recorre el arreglo y si encuentra el objeto e en el arreglo
 
-        if(data[i] == E){ // asigna el índice de la iteración a la variable posición si existe e 
+        if(data[i]->equals(E)){ // asigna el índice de la iteración a la variable posición si existe e
 
           posicion = i; // en el arreglo
 
@@ -199,18 +199,19 @@
     } //Fin de clear
 
     int VArrayList::prev(int p) const{
-    	return (p-1);
+     return (p-1);
     }
 
     int VArrayList::next(int p) const{
-    	return p+1;
+     return p+1;
     }
 
     void VArrayList::print()const{
-	for(int i=0;i<size();i++)
-		data[i]->print();
+for(int i=0;i<size();i++)
+data[i]->print();
 }
 
-	int VArrayList::getCapacity() const{
-		return capacity;
-	}	
+int VArrayList::getCapacity() const{
+return capacity;
+} 
+
